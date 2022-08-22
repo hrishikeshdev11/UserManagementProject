@@ -1,0 +1,27 @@
+.example-full-width {
+    width: 100%;
+}
+#formLogin{
+    background-color: whitesmoke;
+    padding: 20px;
+    border: 2px crimson;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px black;
+}
+.btn-submit{
+    border: none;
+    border-radius: 5px;
+    background-color: crimson;
+    padding: 10px 15px;
+    color: white;
+}
+.btn-submit:hover{
+    background-color: green;
+    color: white;
+    transition: .6s;
+}
+.bg-image{
+    background-image: url(../../../../assets/Images/SOC_H_BVR_A_COMM.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}

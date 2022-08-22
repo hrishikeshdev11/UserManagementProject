@@ -1,0 +1,15 @@
+<form class="example-form p-5" [formGroup]="forgetPwdForm">
+    <h1 class="text-center">{{forgetPwd}}</h1>
+    <mat-form-field class="example-full-width" appearance="">
+        <mat-label>Email</mat-label>
+        <input type="email" name="email" placeholder="Email" matInput formControlName="email">
+    </mat-form-field><br>
+    <div class="text-center">
+        <button mat-raised-button type="submit" (click)="check()">Submit</button>
+    </div>
+    <div class="row" style="padding-top:10% ;">
+        <div class="col text-center">
+            <label for="">Do Not Have Account Yet?<a href="/register">Create New</a></label>
+        </div>
+    </div>
+</form>

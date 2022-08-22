@@ -1,0 +1,50 @@
+<div  class="container-fluid d-flex justify-content-center bg-image" style="padding-bottom: 10%;padding-top: 10%">
+    <form id="formLogin" [formGroup]="registrationForm" ngSubmit="postRegistrationData()">
+        <h1 class="text-center">Registration</h1>
+        <mat-form-field class="example-full-width" appearance="">
+            <mat-label>First Name</mat-label>
+            <input type="text" name="fname" placeholder="First Name" matInput formControlName="fname">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="">
+            <mat-label>Last Name</mat-label>
+            <input type="text" name="lname" placeholder="Last Name" matInput formControlName="lname">
+        </mat-form-field><br>
+
+        <mat-form-field class="example-full-width" appearance="">
+            <mat-label>Email <span>{{emailcheck}}</span><br></mat-label>
+            <input type="email" name="email" placeholder="Enter Your Email" matInput formControlName="email"
+                (blur)="checkEmail($event.target.value)">
+        </mat-form-field><br>
+        <mat-form-field class="example-full-width" appearance="">
+            <mat-label>Number</mat-label>
+            <input type="text" name="phno" placeholder="Phone No" matInput formControlName="phno">
+        </mat-form-field><br>
+        <!-- <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+    </mat-form-field> -->
+        <input class="form-control" name="dob" type="date"><br>
+        Country:
+        <select class="form-select" (change)="getStateDataByCountryID($event.target.value)" name="countryId"
+            id="countryId" formControlName="countryId">
+            <option value="0" disabled>Select Country</option>
+            <option *ngFor="let country of countries | keyvalue" [value]="country.key">{{country.value}}</option>
+        </select><br>
+        State
+        <select class="form-select" (change)="getCityDataByStateID($event.target.value)" name="stateId" id="stateId"
+            formControlName="stateId">
+            <option value="0" disabled>Select State</option>
+            <option *ngFor="let state of states | keyvalue" [value]="state.key">{{state.value}}</option>
+        </select><br>
+        City
+        <select class="form-select" name="cityId" id="cityId" formControlName="cityId">
+            <option value="0" disabled>Select City</option>
+            <option *ngFor="let city of cities | keyvalue" [value]="city.key" value="">{{city.value}}</option>
+        </select><br>
+        <h3>{{regStatus}}</h3><br>
+        <div class="text-center">
+            <button class="btn-submit" type="submit" (click)="postRegistrationData()">Submit Data</button>
+        </div>
+    </form>
+</div>

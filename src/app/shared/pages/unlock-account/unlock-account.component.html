@@ -1,0 +1,34 @@
+<div id="formLogin" class="container-fluid d-flex justify-content-center bg-image" style="padding-bottom: 10%;">
+    
+    <form class="example-form p-5" [formGroup]="unlockForm">
+        <h1 class="text-center">Unlock Account</h1>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input type="email" name="email" placeholder="Email" matInput formControlName="email">
+        </mat-form-field><br>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Temp Password</mat-label>
+            <input matInput type="password" name="tempPwd" placeholder="Password" formControlName="tempPwd">
+        </mat-form-field><br>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>New Password</mat-label>
+            <input matInput type="password" name="tempPwd" placeholder="New Password" formControlName="rePassword">
+        </mat-form-field><br>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>ReEnter New Password</mat-label>
+            <input matInput type="password" name="tempPwd" placeholder="ReEnter New Password"  formControlName="newPassword">
+        </mat-form-field><br>
+        <div class="text-center">
+            <button mat-raised-button type="submit" (click)="unlockAccount()">Unlock Account</button>
+        </div>
+        <!-- <h3>{{loginStatus}}</h3><br> -->
+        <div class="row" style="padding-top:10% ;">
+            <div class="col text-center">
+                <label for="">Do Not Have Account Yet?<a routerLink="/register">Create New</a></label>
+            </div>
+            <div class="col text-center">
+                <label for="">Login?<button id="button" routerLink="/login">Click Here</button></label>
+            </div>
+        </div>
+    </form>
+</div>

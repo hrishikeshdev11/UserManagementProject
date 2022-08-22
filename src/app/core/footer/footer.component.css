@@ -1,0 +1,44 @@
+.flex{
+    display: flex;
+    flex-direction: row;  
+    font-family: cursive;
+    /* margin-left: 10%; */
+}
+.hover-icon{
+    opacity: 0.5;
+}
+.hover-icon:hover{
+    opacity: 1;
+    transition: .7s;
+
+}
+.input{
+    padding: 7px 7px;
+    border-radius: 30px;
+    border: none;
+}
+.btn-subcribe{
+    padding: 7px 7px;
+    border-radius: 30px;
+    border: none;
+    color: black;
+    background-color: wheat;
+    font-family: cursive;
+}
+.btn-subcribe:hover{
+    color:  wheat;
+    background-color:  black;
+    transition: .7s;
+}
+a{
+    margin-left: 5%;
+}
+.copyright{
+    background-color: crimson;
+    font-family: cursive;
+    font-size: 20px;
+    padding: 15px 0px;
+}
+span{
+    
+}

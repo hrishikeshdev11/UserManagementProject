@@ -1,0 +1,31 @@
+
+<div id="formLogin" class="container-fluid d-flex justify-content-center bg-image" style="padding-bottom: 10%;">
+    
+    <form class="example-form p-5" [formGroup]="loginForm">
+        <h1 class="text-center">Login</h1>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input type="email" name="email" placeholder="Email" matInput formControlName="email">
+        </mat-form-field><br>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" name="pwd" placeholder="Password" formControlName="pwd">
+        </mat-form-field><br>
+        <div class="text-center">
+            <button mat-raised-button type="submit" (click)="postlogin()">Login</button>
+        </div>
+        <h3>{{loginStatus}}</h3><br>
+        <div class="row" style="padding-top:10% ;">
+            <div class="col text-center">
+                <label for="">Do Not Have Account Yet?<a routerLink="/register">Create New</a></label>
+            </div>
+            <div class="col text-center">
+                <label for="">Do Not Remember Password?<button id="button" (click)="openDialoge()">Reset Password</button></label>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="modal" id="forgetPwd">
+    hello
+</div>
