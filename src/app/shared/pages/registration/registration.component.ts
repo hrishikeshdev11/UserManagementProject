@@ -37,7 +37,6 @@ export class RegistrationComponent implements OnInit {
   checkEmail(email){
     this.regCoreServices.checkEmail(email).subscribe(res=>{this.emailcheck=res,
       console.log(res);
-      
     },
     err=>{
       console.log(err);      
@@ -52,7 +51,10 @@ export class RegistrationComponent implements OnInit {
       }
     }      
   }
-
+  user:null
+  generateToken(){
+    this.regCoreServices.gernerateToken().subscribe(res=>{console.log(res)},err=>{console.log(err)});
+  }
   postRegistrationData(){
     this.regFormSubmit.postRegistrationSubmit(this.registrationForm.value).subscribe(res=>{this.regStatus=res,console.log(res)},err=>{console.log(err);
     })
@@ -60,6 +62,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   getCountryData() {
+    this.regCoreServices.getToken();
     this.regCoreServices.getCountryData().subscribe(res => {
       this.countries = res, console.log(res)
     },
@@ -85,8 +88,10 @@ export class RegistrationComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.generateToken(),
     this.getCountryData(),
-    this.getRegistrationControl() 
+    this.getRegistrationControl()
+    
   }
 
 }

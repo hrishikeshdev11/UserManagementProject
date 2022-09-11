@@ -11,13 +11,15 @@ import { LoginComponent } from './shared/pages/login/login.component';
 import { RegistrationComponent } from './shared/pages/registration/registration.component';
 import { UnlockAccountComponent } from './shared/pages/unlock-account/unlock-account.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatButtonModule } from "@angular/material/button";
 import { MatInputModule } from "@angular/material/input";
 import {MatIconModule} from '@angular/material/icon';
 import { FooterComponent } from './core/footer/footer.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ForgetPwdComponent } from './shared/pages/forget-pwd/forget-pwd.component'
+import { AuthInterceptor } from './authentication/auth.interceptor';
+import { NotFoundComponent } from './shared/pages/not-found/not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +30,8 @@ import { ForgetPwdComponent } from './shared/pages/forget-pwd/forget-pwd.compone
     RegistrationComponent,
     UnlockAccountComponent,
     FooterComponent,
-    ForgetPwdComponent
+    ForgetPwdComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,13 @@ import { ForgetPwdComponent } from './shared/pages/forget-pwd/forget-pwd.compone
     MatIconModule,
     MatDialogModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true 
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

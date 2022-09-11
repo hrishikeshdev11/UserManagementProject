@@ -1,8 +1,9 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import {  FormGroup } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import {  FormControl, FormGroup } from '@angular/forms';
+
 import { Router } from '@angular/router';
-import { exit } from 'process';
+
+import { ForgetPasswordService } from '../../services/forgetPassword/forget-password.service';
 
 
 @Component({
@@ -13,8 +14,13 @@ import { exit } from 'process';
 export class ForgetPwdComponent implements OnInit {
   forgetPwd;
   forgetPwdForm: FormGroup;
-  constructor(@Inject(MAT_DIALOG_DATA) public data, private routeTo:Router) {
-    this.forgetPwd = data.Name
+  email:string
+  constructor(private routeTo:Router, private forgetPwdService:ForgetPasswordService) {
+
+  }
+
+  forgetPwdData(){
+    this.forgetPwdService.forgetPwdService(this.email).subscribe(res=>{console.log(res)},err=>{console.log(err)})
   }
 
   createReg(){
@@ -23,11 +29,12 @@ export class ForgetPwdComponent implements OnInit {
 
   check() {
     this.forgetPwdForm = new FormGroup({
-      
+      'email': new FormControl(),
     })
   }
 
 ngOnInit(): void {
+  this.check();
 }
 
 }

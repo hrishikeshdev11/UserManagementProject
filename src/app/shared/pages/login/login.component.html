@@ -5,12 +5,16 @@
         <h1 class="text-center">Login</h1>
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Email</mat-label>
-            <input type="email" name="email" placeholder="Email" matInput formControlName="email">
+            <input type="email" name="email" placeholder="Email" matInput formControlName="email" required>
         </mat-form-field><br>
+        <small *ngIf="!loginForm.get('email').valid && loginForm.get('email').touched">Please Enter Correct Email</small>
+
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Password</mat-label>
-            <input matInput type="password" name="pwd" placeholder="Password" formControlName="pwd">
+            <input matInput type="password" name="password" placeholder="Password" formControlName="password" required>
         </mat-form-field><br>
+        <small *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Please Enter Password</small>
+
         <div class="text-center">
             <button mat-raised-button type="submit" (click)="postlogin()">Login</button>
         </div>
@@ -20,12 +24,12 @@
                 <label for="">Do Not Have Account Yet?<a routerLink="/register">Create New</a></label>
             </div>
             <div class="col text-center">
-                <label for="">Do Not Remember Password?<button id="button" (click)="openDialoge()">Reset Password</button></label>
+                <label for="">Do Not Remember Password?<a routerLink="/forgetPwd">Reset Password</a></label>
             </div>
         </div>
     </form>
 </div>
 
-<div class="modal" id="forgetPwd">
+<!-- <div class="modal" id="forgetPwd">
     hello
-</div>
+</div> -->
